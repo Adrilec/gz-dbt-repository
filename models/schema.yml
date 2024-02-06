@@ -38,3 +38,33 @@ sources:
             tests:
               - unique
               - not_null
+models:
+  - name: int_orders_margin
+    description: margin per order
+    columns:
+      - name: orders_id
+        description: Primary key of the model
+        tests:
+          - unique
+          - not_null
+  - name: finance_days
+    description: finance numbers
+    columns:
+      - name: date_date
+        description: Primary key of the model
+        tests:
+          - unique
+          - not_null
+  - name: int_sales_margin
+    description: margin per sales
+    columns:
+      - name: orders_id
+      - name: products_id
+      - name: margin
+      - name: purchase_cost
+      - name: date_date
+      - name: revenue
+      - name: quantity
+        description: not null
+        tests:
+          - not_null
