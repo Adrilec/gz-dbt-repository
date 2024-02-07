@@ -230,3 +230,22 @@ models:
                     - ads_cost
                     - impression
                     - click
+      - name: int_campaigns_day
+        columns:
+          - name: date_date
+            description: Primary key of the table campaigns per day
+            tests:
+              - unique
+              - not_null
+          - name: ads_cost
+            description: total of cost for the ads for that day
+            tests:
+              - not_null
+          - name: impression
+            description: total of impressions of the ads for that day
+            tests:
+              - not_null
+          - name: ads_click
+            description: total of clicks of the ads for that day
+            tests:
+              - not_null
