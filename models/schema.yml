@@ -241,7 +241,7 @@ models:
             description: total of cost for the ads for that day
             tests:
               - not_null
-          - name: impression
+          - name: ads_impression
             description: total of impressions of the ads for that day
             tests:
               - not_null
