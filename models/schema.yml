@@ -38,33 +38,82 @@ sources:
             tests:
               - unique
               - not_null
+          - name: shipping_fee
+            description: shipping fee for every order
+          - name: logcost
+            description: logcosts for every order
+          - name: ship_cost
+            description: shipcosts for every order
 models:
-  - name: int_orders_margin
-    description: margin per order
-    columns:
-      - name: orders_id
-        description: Primary key of the model
-        tests:
-          - unique
-          - not_null
-  - name: finance_days
-    description: finance numbers
-    columns:
-      - name: date_date
-        description: Primary key of the model
-        tests:
-          - unique
-          - not_null
-  - name: int_sales_margin
-    description: margin per sales
-    columns:
-      - name: orders_id
-      - name: products_id
-      - name: margin
-      - name: purchase_cost
-      - name: date_date
-      - name: revenue
-      - name: quantity
-        description: not null
-        tests:
-          - not_null
+      - name: int_orders_margin
+        columns:
+          - name: orders_id
+            description: Primary key of the table orders margin
+            tests:
+              - unique
+              - not_null
+          - name: revenue
+            description: not null
+            tests:
+              - not_null
+          - name: margin
+            description: not null
+            tests:
+              - not_null
+      - name: int_orders_operational
+        columns:
+          - name: orders_id
+            description: Primary key of the table operational
+            tests:
+              - unique
+              - not_null
+          - name: revenue
+            description: not null
+            tests:
+              - not_null
+          - name: margin
+            description: not null
+            tests:
+              - not_null
+          - name: operational_margin
+            description: not null
+            tests:
+              - not_null
+      - name: int_sales_margin
+        columns:
+          - name: "(orders_id || '-' || products_id)"
+            description: primary key
+            tests:
+              - unique 
+              - not_null 
+          - name: revenue
+            description: revenue not null
+            tests:
+              - not_null
+          - name: margin
+            description: not null
+            tests:
+              - not_null
+      - name: finance_days
+        columns:
+          - name: date_date
+            description: Primary key of the table finance day
+            tests:
+              - unique
+              - not_null
+          - name: revenue
+            description: not null
+            tests:
+              - not_null
+          - name: margin
+            description: not null
+            tests:
+              - not_null
+          - name: operational_margin
+            description: not null
+            tests:
+              - not_null
+          - name: average_basket
+            description: not null
+            tests:
+              - not_null
