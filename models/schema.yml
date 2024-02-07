@@ -218,3 +218,15 @@ models:
             description: not null
             tests:
               - not_null
+      - name: int_campaigns
+        tests:
+              - unique:
+                  column_name: "(campaign_key || '-'|| date_date)"
+              - not_null:
+                  column_name:
+                    - paid_soure
+                    - campaign_name
+                    - campaign_key
+                    - ads_cost
+                    - impression
+                    - click
