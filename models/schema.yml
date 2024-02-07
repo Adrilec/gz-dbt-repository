@@ -44,6 +44,16 @@ sources:
             description: logcosts for every order
           - name: ship_cost
             description: shipcosts for every order
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: spent on adwords
+        columns:
+          - name: date_date
+            description: the date
+            tests: 
+              - unique 
+              - not_null
+      
 models:
       - name: int_orders_margin
         columns:
