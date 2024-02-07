@@ -50,10 +50,66 @@ sources:
         columns:
           - name: date_date
             description: the date
-            tests: 
-              - unique 
+            tests:
               - not_null
-      
+          - name: paid_source
+            description: name of source 
+            tests:
+              - not_null 
+          - name: campaign_key
+            description: key of the campaign
+            tests:
+              - not_null
+          - name: campaign_name
+            description: name of the campaign
+            tests:
+              - not_null 
+          - name: ads_cost
+            description: costs of ad
+            tests:
+              - not_null
+          - name: impression
+            description: number of views of the ad
+            tests:
+              - not_null
+          - name: click
+            description: number of clicks on the ad
+            tests:
+              - not_null
+      - name: bing
+        identifier: raw_gz_bing
+        description: spent on bing
+        columns:
+          - name: date_date
+            description: the date
+            tests:
+              - not_null
+          - name: paid_source
+            description: name of source 
+            tests:
+              - not_null 
+          - name: campaign_key
+            description: key of the campaign
+            tests:
+              - not_null
+          - name: campaign_name
+            description: name of the campaign
+            tests:
+              - not_null 
+          - name: ads_cost
+            description: costs of ad
+            tests:
+              - not_null
+          - name: impression
+            description: number of views of the ad
+            tests:
+              - not_null
+          - name: click
+            description: number of clicks on the ad
+            tests:
+              - not_null
+
+
 models:
       - name: int_orders_margin
         columns:
