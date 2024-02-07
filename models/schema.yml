@@ -249,3 +249,20 @@ models:
             description: total of clicks of the ads for that day
             tests:
               - not_null
+      - name: finance_campaigns_day
+        columns:
+          - name: date_date
+            description: Primary key of the table campaigns per day
+            tests:
+              - unique
+              - not_null
+          - name: ads_margin
+            description: total of margin for the ads for that day (operation margin minus ads cost)
+          - name: average_basket
+            description: total average basket for that day
+          - name: operational_margin
+            description: total operational margin for that day
+          - name: ads_cost
+            description: total of cost for the ads for that day
+
+
