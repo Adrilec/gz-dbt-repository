@@ -44,6 +44,107 @@ sources:
             description: logcosts for every order
           - name: ship_cost
             description: shipcosts for every order
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: spent on adwords
+        tests:
+              - unique:
+                  column_name: "(campaign_key || '-'|| date_date)"
+              - not_null:
+                  column_name:
+                    - paid_soure
+                    - campaign_name
+        columns: 
+          - name: date_date
+            description: the date
+          - name: paid_source
+            description: equals name
+          - name: campaign_key
+            description: campaign_key, not primary key
+          - name: camPGN_name
+            description: name of campaign
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: number of impressions
+          - name: click
+            description: number of clicks
+      - name: bing
+        identifier: raw_gz_bing
+        description: spent on bing
+        tests:
+              - unique:
+                  column_name: "(campaign_key || '-'|| date_date)"
+              - not_null:
+                  column_name:
+                    - paid_soure
+                    - campaign_name
+        columns: 
+          - name: date_date
+            description: the date
+          - name: paid_source
+            description: equals name
+          - name: campaign_key
+            description: campaign_key, not primary key
+          - name: camPGN_name
+            description: name of campaign
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: number of impressions
+          - name: click
+            description: number of clicks
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: spent on criteo
+        tests:
+              - unique:
+                  column_name: "(campaign_key || '-'|| date_date)"
+              - not_null:
+                  column_name:
+                    - paid_soure
+                    - campaign_name
+        columns: 
+          - name: date_date
+            description: the date
+          - name: paid_source
+            description: equals name
+          - name: campaign_key
+            description: campaign_key, not primary key
+          - name: camPGN_name
+            description: name of campaign
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: number of impressions
+          - name: click
+            description: number of clicks
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: spent on facebook
+        tests:
+              - unique:
+                  column_name: "(campaign_key || '-'|| date_date)"
+              - not_null:
+                  column_name:
+                    - paid_soure
+                    - campaign_name
+        columns: 
+          - name: date_date
+            description: the date
+          - name: paid_source
+            description: equals name
+          - name: campaign_key
+            description: campaign_key, not primary key
+          - name: camPGN_name
+            description: name of campaign
+          - name: ads_cost
+            description: cost of ads
+          - name: impression
+            description: number of impressions
+          - name: click
+            description: number of clicks
+
 models:
       - name: int_orders_margin
         columns:
@@ -117,3 +218,65 @@ models:
             description: not null
             tests:
               - not_null
+      - name: int_campaigns
+        tests:
+              - unique:
+                  column_name: "(campaign_key || '-'|| date_date)"
+              - not_null:
+                  column_name:
+                    - paid_soure
+                    - campaign_name
+                    - campaign_key
+                    - ads_cost
+                    - impression
+                    - click
+      - name: int_campaigns_day
+        columns:
+          - name: date_date
+            description: Primary key of the table campaigns per day
+            tests:
+              - unique
+              - not_null
+          - name: ads_cost
+            description: total of cost for the ads for that day
+            tests:
+              - not_null
+          - name: ads_impression
+            description: total of impressions of the ads for that day
+            tests:
+              - not_null
+          - name: ads_click
+            description: total of clicks of the ads for that day
+            tests:
+              - not_null
+      - name: finance_campaigns_day
+        columns:
+          - name: date_date
+            description: Primary key of the table campaigns per day
+            tests:
+              - unique
+              - not_null
+          - name: ads_margin
+            description: total of margin for the ads for that day (operation margin minus ads cost)
+          - name: average_basket
+            description: total average basket for that day
+          - name: operational_margin
+            description: total operational margin for that day
+          - name: ads_cost
+            description: total of cost for the ads for that day
+      - name: finance_campaigns_month
+        columns:
+          - name: datemonth
+            description: Primary key of the table campaigns per month
+            tests:
+              - unique
+              - not_null
+          - name: ads_margin
+            description: total of margin for the ads for that month (operation margin minus ads cost)
+          - name: average_basket
+            description: total average basket for that month
+          - name: operational_margin
+            description: total operational margin for that month
+          - name: ads_cost
+            description: total of cost for the ads for that month
+
