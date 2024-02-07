@@ -264,5 +264,19 @@ models:
             description: total operational margin for that day
           - name: ads_cost
             description: total of cost for the ads for that day
-
+      - name: finance_campaigns_month
+        columns:
+          - name: datemonth
+            description: Primary key of the table campaigns per month
+            tests:
+              - unique
+              - not_null
+          - name: ads_margin
+            description: total of margin for the ads for that month (operation margin minus ads cost)
+          - name: average_basket
+            description: total average basket for that month
+          - name: operational_margin
+            description: total operational margin for that month
+          - name: ads_cost
+            description: total of cost for the ads for that month
 
