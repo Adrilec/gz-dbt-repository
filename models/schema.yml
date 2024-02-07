@@ -108,6 +108,39 @@ sources:
             description: number of clicks on the ad
             tests:
               - not_null
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: spent on criteo
+        columns:
+          - name: date_date
+            description: the date
+            tests:
+              - not_null
+          - name: paid_source
+            description: name of source 
+            tests:
+              - not_null 
+          - name: campaign_key
+            description: key of the campaign
+            tests:
+              - not_null
+          - name: campaign_name
+            description: name of the campaign
+            tests:
+              - not_null 
+          - name: ads_cost
+            description: costs of ad
+            tests:
+              - not_null
+          - name: impression
+            description: number of views of the ad
+            tests:
+              - not_null
+          - name: click
+            description: number of clicks on the ad
+            tests:
+              - not_null
+
 
 
 models:
